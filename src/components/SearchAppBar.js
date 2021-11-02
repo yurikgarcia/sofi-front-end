@@ -108,7 +108,7 @@ export default function SearchAppBar({handleSearch}) {
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              placeholder="For house queries, begin your search with 'house'"
               inputProps={{ "aria-label": "search" }}
               onBlur={(event) => handleSearch(event)}
               onKeyUp={(event) => {

@@ -2,17 +2,19 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import Container from "@mui/material/Container";
-import ClippedDrawer from "./ClippedDrawer.js";
 
 function Houses({houseData}) {
+  const charac = houseData.map((elem, idx) => (
+    <Card key="idx" variant="outlined">{elem.fullName}</Card>
+  ))
+  console.log("Characters in HTML:", charac);
   return (
     <div>
-      <ClippedDrawer />
       <Box>
         <Container>
           <Grid container spacing={2}>
             <Grid item xs={2}>
-              <Card variant="outlined">{houseData.name}</Card>
+              <Card variant="outlined">{charac}</Card>
             </Grid>
           </Grid>
         </Container>
@@ -20,5 +22,5 @@ function Houses({houseData}) {
     </div>
   );
 }
-// aa
+
 export default Houses;
