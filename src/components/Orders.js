@@ -58,7 +58,7 @@ const ExpandMore = styled((props) => {
           <main>  
             <Card sx={{ maxWidth: 345 }}>
               <CardHeader
-                title="NAME"
+                title="NIGHTS WATCH"
               />
               <CardMedia
                 component="img"
@@ -67,30 +67,8 @@ const ExpandMore = styled((props) => {
                 alt="Sorry you cant see our badass Pokemon"
               />
         
-              <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites" >
-                  {/* <Favorites favorite={result.name}/> */}
-                  <FavoriteIcon />
-                  
-                </IconButton>
-        
-                <ExpandMore
-                  expand={expanded}
-                  onClick={handleExpandClick}
-                  aria-expanded={expanded}
-                  aria-label="show more"
-                >
-                  <ExpandMoreIcon />
-                </ExpandMore>
-              </CardActions>
-              <Collapse in={expanded} timeout="auto" unmountOnExit>
-                <CardContent>
-                  <Typography paragraph>Royalty: </Typography>
-                  <Typography paragraph>House: </Typography>
-                  <Typography paragraph>Orders: </Typography>
-                  <Typography paragraph>Spouse: </Typography>
-                </CardContent>
-              </Collapse>
+  
+  
             </Card>
         </main>  
           );

@@ -46,12 +46,13 @@ function App() {
           <body>
 
             <Switch>
-            <Route path="/home" exact component={Home}/>
+            <Route path="/" exact component={Home}/>
               <Route path="/characters" exact component={Characters}/>
-              <Route path="/houses" render={() => <Houses houseData={gotData} />} />
-              <Route path="/houses" exact component={HousesDetails}/>
+              <Route path="/houses" exact component={Houses}/>
+              {/* <Route path="/houses" render={() => <Houses houseData={gotData} />} /> */}
+              <Route path="/houses/:name" exact component={HousesDetails}/>
               <Route path="/orders" exact component={Orders}/>
-              <Route path="/orders:name" exact component={OrdersDetails}/>
+              <Route path="/orders/:name" exact component={OrdersDetails}/>
               <Route path="/tree" exact component={Tree}/>
               <Route path="/battle" exact component={Battle}/>
             </Switch>

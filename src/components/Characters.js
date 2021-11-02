@@ -11,6 +11,22 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import TempDrawerChar from "../components/TempDrawerChar.js";
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import MenuIcon from '@mui/icons-material/Menu';
+import HouseboatOutlinedIcon from '@mui/icons-material/HouseboatOutlined';
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import AccountTreeOutlinedIcon from '@mui/icons-material/AccountTreeOutlined';
+import SecurityOutlinedIcon from '@mui/icons-material/SecurityOutlined';
+import SportsKabaddiOutlinedIcon from '@mui/icons-material/SportsKabaddiOutlined';
+import {Link} from 'react-router-dom';
 import '../App.css';
 
 
@@ -91,6 +107,14 @@ const ExpandMore = styled((props) => {
                 </CardContent>
               </Collapse>
             </Card>
+
+            <Box>
+
+            <TempDrawerChar/>
+
+            </Box>
+
+
         </main>  
           );
         }
