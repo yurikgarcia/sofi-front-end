@@ -89,6 +89,10 @@ export default function SearchAppBar({handleSearch}) {
             <Button variant="contained">Houses</Button>
           </Link>
 
+          <Link to="/orders" style={{ textDecoration: 'none', color: 'white'}}>
+            <Button variant="contained">Orders</Button>
+          </Link>
+
           <Link to="/tree" style={{ textDecoration: 'none', color: 'white'}}>
             <Button variant="contained">Tree</Button>
           </Link>

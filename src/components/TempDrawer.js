@@ -13,7 +13,6 @@ import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined
 import AccountTreeOutlinedIcon from '@mui/icons-material/AccountTreeOutlined';
 import SecurityOutlinedIcon from '@mui/icons-material/SecurityOutlined';
 import SportsKabaddiOutlinedIcon from '@mui/icons-material/SportsKabaddiOutlined';
-import ArticleIcon from '@mui/icons-material/Article';
 import {Link} from 'react-router-dom';
 
 
@@ -78,7 +77,18 @@ export default function TempDrawer() {
             </ListItem>
       </Link>      
 
-      <Link to="/" style={{ textDecoration: 'none', color: 'black'}}>
+      <Link to="/orders" style={{ textDecoration: 'none', color: 'black'}}>
+            <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <SecurityOutlinedIcon  />
+                    </ListItemIcon>
+                    <ListItemText primary="Orders" />
+                  </ListItemButton>
+            </ListItem>
+      </Link>  
+
+      <Link to="/tree" style={{ textDecoration: 'none', color: 'black'}}>
             <ListItem disablePadding>
                   <ListItemButton>
                     <ListItemIcon>
@@ -89,7 +99,7 @@ export default function TempDrawer() {
             </ListItem>
       </Link>
 
-      <Link to="/" style={{ textDecoration: 'none', color: 'black'}}>
+      <Link to="/battle" style={{ textDecoration: 'none', color: 'black'}}>
             <ListItem disablePadding>
                   <ListItemButton>
                     <ListItemIcon>
