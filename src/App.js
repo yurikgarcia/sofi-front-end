@@ -1,12 +1,12 @@
 import "./App.css";
 import SearchAppBar from "./components/SearchAppBar.js";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import Houses from "./components/Houses.js";
 import Characters from "./components/Characters.js";
 import Tree from "./components/Tree.js";
 import Battle from "./components/Battle.js";
 import Orders from "./components/Orders.js";
-// import fetch from "cross-fetch";
+import fetch from "cross-fetch";
 import { useState, useEffect } from "react";
 
 function App() {
@@ -14,11 +14,13 @@ function App() {
   const handleSearch = (event) => {
     setSearchString(event.target.value);
     event.target.value = "";
+    //compare this string to the database array(s)
+    //if includes() then route to the appropriate page and populate
   };
 
   console.log("Search string: ", searchString);
 
-  const url = "https://anapioficeandfire.com/api/houses/378";
+  const url = "http://localhost:3001/characters";
   const [gotData, setGotData] = useState();
 
   useEffect(() => {
@@ -31,6 +33,11 @@ function App() {
     getApi(url);
     console.log(searchString);
   }, []);
+
+  useEffect(() => {
+    console.log(searchString);
+
+  },[searchString])
 
   return (
     <div>
