@@ -5,6 +5,7 @@ import Houses from "./components/Houses.js";
 import Characters from "./components/Characters.js";
 import Tree from "./components/Tree.js";
 import Battle from "./components/Battle.js";
+import Orders from "./components/Orders.js";
 // import fetch from "cross-fetch";
 import { useState, useEffect } from "react";
 
@@ -44,6 +45,7 @@ function App() {
             <Switch>
               <Route path="/characters" exact component={Characters}/>
               <Route path="/houses" render={() => <Houses houseData={gotData} />} />
+              <Route path="/orders" exact component={Orders}/>
               <Route path="/tree" exact component={Tree}/>
               <Route path="/battle" exact component={Battle}/>
             </Switch>
