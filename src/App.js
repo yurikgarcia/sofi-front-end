@@ -10,32 +10,33 @@ import fetch from "cross-fetch";
 import { useState, useEffect } from "react";
 
 function App() {
-  const [searchString, setSearchString] = useState();
+  const [searchString, setSearchString] = useState('');
+  const [houseData, setHouseData] = useState([]);
   const handleSearch = (event) => {
     setSearchString(event.target.value);
     event.target.value = "";
-    //compare this string to the database array(s)
-    //if includes() then route to the appropriate page and populate
   };
 
-  console.log("Search string: ", searchString);
-
-  const url = "http://localhost:3001/characters";
-  const [gotData, setGotData] = useState();
+  // const url = "https://thronesapi.com/api/v2/Characters";
+  const url = "http://localhost:3001/GOT/characters";
+  const [gotData, setGotData] = useState([]);
 
   useEffect(() => {
     const getApi = async (url) => {
       const response = await fetch(url);
       //possible to destructure json data for specific field (e.g. URI field) with {fieldname}
       const apiData = await response.json();
-      setGotData(apiData);
+      setGotData([...apiData]);
     };
     getApi(url);
-    console.log(searchString);
   }, []);
 
   useEffect(() => {
-    console.log(searchString);
+    console.log("Search string: ", searchString);
+    console.log("Characters: ", gotData);
+    let cardFile = gotData.filter(elem => elem.lastName === searchString);
+    setHouseData(cardFile);
+    // window.location.replace("http://localhost:3000/houses");
 
   },[searchString])
 
@@ -51,7 +52,7 @@ function App() {
 
             <Switch>
               <Route path="/characters" exact component={Characters}/>
-              <Route path="/houses" render={() => <Houses houseData={gotData} />} />
+              <Route path="/houses" render={() => <Houses houseData={houseData} />} />
               <Route path="/orders" exact component={Orders}/>
               <Route path="/tree" exact component={Tree}/>
               <Route path="/battle" exact component={Battle}/>
