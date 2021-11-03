@@ -54,7 +54,7 @@ export default function TempDrawer() {
   return (
     <div>
 
-        <h2> SEE FULL LIST</h2>
+        <h2> See Full List</h2>
 
       {['right'].map((anchor) => (
         <React.Fragment key={anchor}>

@@ -9,9 +9,12 @@ import Orders from "./components/Orders.js";
 import OrdersDetails from "./components/OrdersDetails.js";
 import HousesDetails from "./components/HousesDetails.js";
 import Home from "./components/Home.js";
+import {ThemeProvider} from "@mui/material/styles";
+import { createTheme } from '@mui/material/styles';
 import { purple } from '@mui/material/colors';
 // import fetch from "cross-fetch";
 import { useState, useEffect } from "react";
+
 
 function App() {
   const [searchString, setSearchString] = useState();
@@ -36,7 +39,21 @@ function App() {
     console.log(searchString);
   }, []);
 
+  const customTheme = createTheme ({
+    palette: {
+      // type: 'dark'
+      primary: 'purple',
+      // secondary: '',
+      // error: '',
+      // warning: '',
+      // info: '',
+      // success: '',
+    }
+  });
+
   return (
+
+  <ThemeProvider theme = {customTheme}> 
     <div>
 
           <header>
@@ -59,10 +76,8 @@ function App() {
             </Switch>
 
           </body>
-
-{/* jfkfkfkfk */}
-
-    </div>
+      </div>
+    </ThemeProvider>
   );
 }
 
