@@ -5,7 +5,7 @@ import Container from "@mui/material/Container";
 
 function Houses({houseData}) {
   const charac = houseData.map((elem, idx) => (
-    <Card key="idx" variant="outlined">{elem.fullName}</Card>
+    <Card key="idx" variant="outlined">{elem.name}</Card>
   ))
   console.log("Characters in HTML:", charac);
   return (

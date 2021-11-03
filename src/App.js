@@ -23,19 +23,19 @@ function App() {
 
   useEffect(() => {
     const getApi = async (url) => {
-      const response = await fetch(url);
+      const response = await fetch(url, {mode: 'no-cors'});
       //possible to destructure json data for specific field (e.g. URI field) with {fieldname}
       const apiData = await response.json();
-      setGotData([...apiData]);
+      setGotData(apiData);
     };
     getApi(url);
   }, []);
 
   useEffect(() => {
     console.log("Search string: ", searchString);
-    console.log("Characters: ", gotData);
-    let cardFile = gotData.filter(elem => elem.lastName === searchString);
-    setHouseData(cardFile);
+    console.log("Characters: ", gotData.characters);
+    // let cardFile = gotData.characters.filter(elem => elem.name === searchString);
+    // setHouseData(cardFile);
     // window.location.replace("http://localhost:3000/houses");
 
   },[searchString])
