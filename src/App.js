@@ -11,7 +11,8 @@ import HousesDetails from "./components/HousesDetails.js";
 import Home from "./components/Home.js";
 import {ThemeProvider} from "@mui/material/styles";
 import { createTheme } from '@mui/material/styles';
-import { purple } from '@mui/material/colors';
+import { grey } from '@mui/material/colors';
+import {lime } from '@mui/material/colors';
 import fetch from "cross-fetch";
 import { useState, useEffect } from "react";
 
@@ -60,33 +61,37 @@ function App() {
     }
   }, [searchString]);
 
-  // const customTheme = createTheme ({
-  //   palette: {
-  //     // type: 'dark'
-  //     primary: 'purple',
-  //     // secondary: '',
-  //     // error: '',
-  //     // warning: '',
-  //     // info: '',
-  //     // success: '',
-  //   },
-  // typography: {
-  //   fontFamily: [
-  //     'Cinzel',
-  //     cursive,
-  //   ].join(','),
-  // } 
-  // });
+  const customTheme = createTheme ({
+    palette: {
+      primary: {
+        main: '#263238',
+        // #0e0e11
+      },
+      secondary: {
+        main: lime[500],
+      },
+    },
+    typography:{
+      fontFamily: [
+        'Cinzel',
+      ]
+    }
+      
+
+    // }
+  });
+
+  // font-family: 'Cinzel',cursive;
 
 
 
   return (
 
-  // <ThemeProvider theme = {customTheme}> 
+  <ThemeProvider theme = {customTheme}> 
     <div>
 
           <header>
-            <SearchAppBar style ={{background: purple }} handleSearch={handleSearch} />
+            <SearchAppBar  handleSearch={handleSearch} />
           </header>
 
 
