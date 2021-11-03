@@ -12,48 +12,77 @@ import Home from "./components/Home.js";
 import {ThemeProvider} from "@mui/material/styles";
 import { createTheme } from '@mui/material/styles';
 import { purple } from '@mui/material/colors';
-// import fetch from "cross-fetch";
+import fetch from "cross-fetch";
 import { useState, useEffect } from "react";
 
 
 function App() {
   const [searchString, setSearchString] = useState();
+  const [charData, setCharData] = useState([]);
+  const [houseData, setHouseData] = useState([]);
+  const [relatData, setRelatData] = useState([]);
   const handleSearch = (event) => {
     setSearchString(event.target.value);
     event.target.value = "";
   };
 
-  console.log("Search string: ", searchString);
-
-  const url = "https://anapioficeandfire.com/api/houses/378";
-  const [gotData, setGotData] = useState();
+ // const url = "https://thronesapi.com/api/v2/Characters";
+ const url = "http://localhost:3001/GOT/characters";
+ const [gotData, setGotData] = useState({
+   characters: [],
+   houses: [],
+   relationships: [],
+ });
 
   useEffect(() => {
     const getApi = async (url) => {
-      const response = await fetch(url);
+      const response = await fetch(url, { mode: "no-cors" });
       //possible to destructure json data for specific field (e.g. URI field) with {fieldname}
       const apiData = await response.json();
       setGotData(apiData);
     };
     getApi(url);
-    console.log(searchString);
   }, []);
 
-  const customTheme = createTheme ({
-    palette: {
-      // type: 'dark'
-      primary: 'purple',
-      // secondary: '',
-      // error: '',
-      // warning: '',
-      // info: '',
-      // success: '',
+  useEffect(() => {
+    if (searchString) {
+      let charSearchArr = gotData.characters.filter((elem) =>
+        elem.name.includes(searchString)
+      );
+      let houseSearchArr = gotData.houses.filter((elem) =>
+        elem.house.includes(searchString)
+      );
+      // let relatSearchArr = gotData.relationships.filter(elem => elem.name.includes(searchString));
+      setCharData(charSearchArr);
+      setHouseData(houseSearchArr);
+      // setRelatData(relatSearchArr);
+      // window.location.replace("http://localhost:3000/houses");
     }
-  });
+  }, [searchString]);
+
+  // const customTheme = createTheme ({
+  //   palette: {
+  //     // type: 'dark'
+  //     primary: 'purple',
+  //     // secondary: '',
+  //     // error: '',
+  //     // warning: '',
+  //     // info: '',
+  //     // success: '',
+  //   },
+  // typography: {
+  //   fontFamily: [
+  //     'Cinzel',
+  //     cursive,
+  //   ].join(','),
+  // } 
+  // });
+
+
 
   return (
 
-  <ThemeProvider theme = {customTheme}> 
+  // <ThemeProvider theme = {customTheme}> 
     <div>
 
           <header>
@@ -65,9 +94,13 @@ function App() {
 
             <Switch>
             <Route path="/" exact component={Home}/>
-              <Route path="/characters" exact component={Characters}/>
-              <Route path="/houses" exact component={Houses}/>
-              {/* <Route path="/houses" render={() => <Houses houseData={gotData} />} /> */}
+            <Route path="/characters" render={() => <Characters match={charData} />} />
+          <Route
+            path="/houses"
+            render={() => <Houses match={houseData} />}
+          />
+              {/* <Route path="/characters" exact component={Characters}/>
+              <Route path="/houses" exact component={Houses}/> */}
               <Route path="/houses/:name" exact component={HousesDetails}/>
               <Route path="/orders" exact component={Orders}/>
               <Route path="/orders/:name" exact component={OrdersDetails}/>
@@ -77,7 +110,7 @@ function App() {
 
           </body>
       </div>
-    </ThemeProvider>
+    // </ThemeProvider>
   );
 }
 
