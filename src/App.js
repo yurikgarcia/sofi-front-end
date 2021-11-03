@@ -9,6 +9,7 @@ import Orders from "./components/Orders.js";
 import OrdersDetails from "./components/OrdersDetails.js";
 import HousesDetails from "./components/HousesDetails.js";
 import Home from "./components/Home.js";
+import { purple } from '@mui/material/colors';
 // import fetch from "cross-fetch";
 import { useState, useEffect } from "react";
 
@@ -39,7 +40,7 @@ function App() {
     <div>
 
           <header>
-            <SearchAppBar handleSearch={handleSearch} />
+            <SearchAppBar style ={{background: purple }} handleSearch={handleSearch} />
           </header>
 
 
