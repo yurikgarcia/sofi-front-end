@@ -7,3 +7,4 @@ function HousesDetails() {
   }
   
   export default HousesDetails;
+

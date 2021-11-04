@@ -15,6 +15,7 @@ import { grey } from '@mui/material/colors';
 import {lime } from '@mui/material/colors';
 import fetch from "cross-fetch";
 import { useState, useEffect } from "react";
+import Sound from 'react-sound';
 
 
 function App() {
@@ -76,6 +77,12 @@ function App() {
         'Cinzel',
       ]
     }
+
+    // const PlaySound = {
+    //   handleSongLoading,
+    //   handleSongPlaying,
+    //   handleSongFinishedPlaying,
+    // }
       
 
     // }
@@ -104,9 +111,9 @@ function App() {
             path="/houses"
             render={() => <Houses match={houseData} />}
           />
-              {/* <Route path="/characters" exact component={Characters}/>
-              <Route path="/houses" exact component={Houses}/> */}
+              <Route path="/characters" exact component={Characters}/>
               <Route path="/houses/:name" exact component={HousesDetails}/>
+              <Route path="/houses" exact component={Houses}/>
               <Route path="/orders" exact component={Orders}/>
               <Route path="/orders/:name" exact component={OrdersDetails}/>
               <Route path="/tree" exact component={Tree}/>
@@ -115,7 +122,7 @@ function App() {
 
           </body>
       </div>
-    // </ThemeProvider>
+    </ThemeProvider>
   );
 }
 
