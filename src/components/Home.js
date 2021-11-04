@@ -3,6 +3,7 @@ import Sound from 'react-sound';
 import song from '../song.mp3';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
+import { flexbox } from '@mui/system';
 
 const PlaySound =(
   handleSongLoading,
@@ -12,14 +13,14 @@ const PlaySound =(
   const [isPlaying, setIsPlaying] = useState(true);
 
   return (
-<main>
+<article>
 
-      <div>
+      <Box>
                   <img src="https://www.medievalists.net/wp-content/uploads/2013/06/westeros.jpg" alt="Logo" />
-      </div>
+      </Box>
 
 
-    <div>
+    <Box>
   
       <Button variant="contained" onClick ={() => setIsPlaying(!isPlaying)}>
         {!isPlaying ? 'Play' : 'Stop'}
@@ -35,8 +36,8 @@ const PlaySound =(
         onFinishedPlaying={handleSongFinishedPlaying}
         />
          
-    </div>
-    </main>
+    </Box>
+    </article>
   );
 }
 
