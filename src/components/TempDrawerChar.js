@@ -5,6 +5,7 @@ import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ViewListOutlinedIcon from '@mui/icons-material/ViewListOutlined';
+import { flexbox } from '@mui/system';
 
 import {Link} from 'react-router-dom';
 
@@ -38,7 +39,7 @@ export default function TempDrawer() {
   <List>
     
    <Link to="/characters" style={{ textDecoration: 'none', color: 'black'}}>
-          <ListItem disablePadding>
+          <ListItem disablePadding sx={{ display: 'flex', justifyContent: 'center'}}> 
                 <h3>Characters</h3>
           </ListItem>
       </Link>
@@ -54,6 +55,7 @@ export default function TempDrawer() {
   return (
     <div>
 
+      <Box>
         <h2> See Full List</h2>
 
       {['right'].map((anchor) => (
@@ -68,6 +70,8 @@ export default function TempDrawer() {
           </Drawer>
         </React.Fragment>
       ))}
+          </Box>
     </div>
+
   );
 }

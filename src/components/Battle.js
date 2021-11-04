@@ -51,8 +51,7 @@ function Battle() {
     </Box>      
   </main>
 
-        <Box sx={{ display: 'flex',
-          justifyContent: 'center'}}> 
+        <Box sx={{ display: 'flex', justifyContent: 'center'}}> 
           <h1>JON SNOW DECLARES VICTORY!</h1>
         </Box>
   </section>

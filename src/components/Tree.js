@@ -1,7 +1,7 @@
 function Tree() {
   return (
     <div>
-                <h1>Specific Houses</h1>
+                <h1>Tree</h1>
     </div>
   );
 }
